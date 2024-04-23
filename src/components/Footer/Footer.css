@@ -1,0 +1,15 @@
+.footer {
+  max-width: 1360px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  font-family: "CabinetGrotesk-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 0px 24px;
+}
+
+.footer__text {
+  margin: 0;
+}
