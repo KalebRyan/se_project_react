@@ -1,0 +1,32 @@
+.modal__content_type_image {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 16px;
+}
+
+.modal__close-button {
+  background: url("../../assets/close-button-white.svg") center no-repeat;
+  width: 16px;
+  height: 16px;
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  cursor: pointer;
+}
+
+.modal__footer {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-size: 20px;
+  padding: 32px;
+}
+
+.modal__title {
+  font-size: 20px;
+}
+
+.modal__subtitle {
+  padding: 12px 0 0;
+  margin: 0;
+}
