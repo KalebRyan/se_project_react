@@ -70,7 +70,7 @@ function App() {
             className="modal__input"
             type="url"
             placeholder="Image URL"
-            id="imeUrl"
+            id="imgUrl"
           />
         </label>
         <fieldset className="modal__radio-buttons">
