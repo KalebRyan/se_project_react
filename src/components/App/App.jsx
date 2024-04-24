@@ -17,7 +17,6 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -53,9 +52,8 @@ function App() {
       <ModalWithForm
         title="New Garment"
         buttonText="Add garment"
-        // activeModal={activeModal}
         handleModalClose={handleModalClose}
-        isOpen={isOpen}
+        isOpen={activeModal === "add-garment"}
       >
         <label htmlFor="name" className="modal__label">
           Name
