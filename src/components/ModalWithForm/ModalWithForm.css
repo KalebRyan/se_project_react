@@ -1,4 +1,6 @@
 .modal {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  line-height: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,8 +20,20 @@
   opacity: 1;
 }
 
+.modal__content {
+  position: relative;
+  background-color: #fff;
+  padding: 28px 28px 36px;
+  border-radius: 20px;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .modal__title {
   margin: 0;
+  font-size: 16px;
+  padding-bottom: 24px;
 }
 
 .modal__close {
@@ -33,29 +47,58 @@
   cursor: pointer;
 }
 
-.modal__content {
-  position: relative;
-  background-color: #fff;
-  padding: 28px 28px 36px;
-  border-radius: 5px;
-  max-width: 496px;
-  box-sizing: border-box;
-  width: 100%;
-}
-
 .modal__form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
+.modal__label {
+  margin-bottom: 24px;
+}
+
 .modal__input {
+  margin-top: 8px;
+  width: 100%;
   display: block;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 4px 0;
 }
 
 .modal__radio-buttons {
+  width: 100%;
+  margin: 0;
   border: none;
   padding: 0;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+}
+
+.modal__radio {
+  display: flex;
+  gap: 8px;
+  accent-color: #00000080;
+  color: #00000080;
+}
+
+.modal__radio-input:checked + span {
+  accent-color: #000;
+  color: #000;
+}
+
+.modal__submit {
+  width: 30%;
+  margin-top: 24px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #0000004d;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal__submit:hover {
+  background-color: #000;
 }
