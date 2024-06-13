@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
+import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Footer from "../Footer/Footer";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -33,6 +34,10 @@ function App() {
 
   const handleModalClose = () => {
     setActiveModal("");
+  };
+
+  const onAddItem = (e) => {
+    console.log(e);
   };
 
   const handleToggleSwitchChange = () => {
@@ -71,15 +76,20 @@ function App() {
           </Routes>
           <Footer />
         </div>
-        <AddItemModal
-          activeModal={activeModal}
-          handleModalClose={handleModalClose}
-        />
-        <ItemModal
-          activeModal={activeModal}
-          card={selectedCard}
-          handleModalClose={handleModalClose}
-        />
+        {activeModal === "create" && (
+          <AddItemModal
+            handleModalClose={handleModalClose}
+            isOpen={activeModal === "create"}
+            onAddItem={onAddItem}
+          />
+        )}
+        {activeModal === "preview" && (
+          <ItemModal
+            activeModal={activeModal}
+            card={selectedCard}
+            handleModalClose={handleModalClose}
+          />
+        )}
       </CurrentTemperatureUnitContext.Provider>
     </div>
   );

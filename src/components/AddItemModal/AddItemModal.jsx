@@ -2,7 +2,7 @@ import React from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function AddItemModal({ isOpen, onAddItem, handleModalClose }) {
+function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
   const [name, setName] = React.useState("");
   const [imgUrl, setImgUrl] = React.useState("");
   const [weather, setWeather] = React.useState("");
@@ -30,7 +30,8 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose }) {
       title="New Garment"
       buttonText="Add garment"
       handleModalClose={handleModalClose}
-      isOpen={activeModal === "add-garment"}
+      isOpen={isOpen}
+      onSubmit={onAddItem}
     >
       <label htmlFor="name" className="modal__label">
         Name
