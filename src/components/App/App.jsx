@@ -76,10 +76,10 @@ function App() {
           </Routes>
           <Footer />
         </div>
-        {activeModal === "create" && (
+        {activeModal === "add-garment" && (
           <AddItemModal
             handleModalClose={handleModalClose}
-            isOpen={activeModal === "create"}
+            isOpen={activeModal === "add-garment"}
             onAddItem={onAddItem}
           />
         )}
