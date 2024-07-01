@@ -23,3 +23,11 @@
   background-color: transparent;
   cursor: pointer;
 }
+
+.clothes-section__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}

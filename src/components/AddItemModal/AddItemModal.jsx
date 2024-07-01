@@ -2,7 +2,7 @@ import React from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
+function AddItemModal({ isOpen, onAddItem, handleModalClose }) {
   const [name, setName] = React.useState("");
   const [imgUrl, setImgUrl] = React.useState("");
   const [weather, setWeather] = React.useState("");
