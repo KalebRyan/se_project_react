@@ -22,7 +22,6 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
   function handleSubmit(e) {
     e.preventDefault();
     onAddItem({ name, imgUrl, weather });
-    onCloseModal();
   }
 
   return (
@@ -31,7 +30,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
       buttonText="Add garment"
       handleModalClose={handleModalClose}
       isOpen={isOpen}
-      onSubmit={onAddItem}
+      onSubmit={handleSubmit}
     >
       <label htmlFor="name" className="modal__label">
         Name
@@ -40,6 +39,8 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
           type="text"
           placeholder="Name"
           id="name"
+          value={name}
+          onChange={handleNameChange}
         />
       </label>
       <label htmlFor="imgUrl" className="modal__label">
@@ -49,6 +50,8 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
           type="url"
           placeholder="Image URL"
           id="imgUrl"
+          value={imgUrl}
+          onChange={handleImgUrlChange}
         />
       </label>
       <fieldset className="modal__radio-buttons">
@@ -60,6 +63,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
             name="type"
             value="hot"
             id="hot"
+            onChange={handleWeatherChange}
           />
           <span>Hot</span>
         </label>
@@ -70,6 +74,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
             name="type"
             value="warm"
             id="warm"
+            onChange={handleWeatherChange}
           />
           <span>Warm</span>
         </label>
@@ -80,6 +85,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, activeModal }) {
             name="type"
             value="cold"
             id="cold"
+            onChange={handleWeatherChange}
           />
           <span>Cold</span>
         </label>
