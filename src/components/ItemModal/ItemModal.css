@@ -25,14 +25,34 @@
 .modal__footer {
   font-family: "CabinetGrotesk-Bold", sans-serif;
   font-size: 20px;
-  padding: 32px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .modal__caption {
   font-size: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .modal__subtitle {
   padding: 12px 0 0;
   margin: 0;
+}
+
+.modal__delete {
+  display: flex;
+  align-items: start;
+  border: none;
+  background: transparent;
+  color: #ff4d00;
+  padding: 0;
+  cursor: pointer;
 }

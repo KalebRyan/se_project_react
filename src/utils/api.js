@@ -22,4 +22,12 @@ function addItem({ name, imageUrl, weather }) {
   });
 }
 
-export { getItems, addItem };
+function deleteItem(id) {
+  return fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+  }).then((res) => {
+    return verifyResponse(res);
+  });
+}
+
+export { getItems, addItem, deleteItem };

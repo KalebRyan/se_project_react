@@ -2,17 +2,17 @@ import React from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-function AddItemModal({ isOpen, onAddItem, handleModalClose }) {
+function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
   const [name, setName] = React.useState("");
-  const [imgUrl, setImgUrl] = React.useState("");
+  const [imageUrl, setImageUrl] = React.useState("");
   const [weather, setWeather] = React.useState("");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
-  const handleImgUrlChange = (e) => {
-    setImgUrl(e.target.value);
+  const handleImageUrlChange = (e) => {
+    setImageUrl(e.target.value);
   };
 
   const handleWeatherChange = (e) => {
@@ -21,7 +21,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddItem({ name, imgUrl, weather });
+    onAddItem({ name, imageUrl, weather });
   }
 
   return (
@@ -43,15 +43,15 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose }) {
           onChange={handleNameChange}
         />
       </label>
-      <label htmlFor="imgUrl" className="modal__label">
+      <label htmlFor="imageUrl" className="modal__label">
         Image {""}
         <input
           className="modal__input"
           type="url"
           placeholder="Image URL"
-          id="imgUrl"
-          value={imgUrl}
-          onChange={handleImgUrlChange}
+          id="imageUrl"
+          value={imageUrl}
+          onChange={handleImageUrlChange}
         />
       </label>
       <fieldset className="modal__radio-buttons">

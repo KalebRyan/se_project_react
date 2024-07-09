@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer";
 import { coordinates, APIkey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { addItem, getItems } from "../../utils/api";
+import { addItem, getItems, deleteItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -42,6 +42,17 @@ function App() {
       .then((newItem) => {
         setClothingItems([...clothingItems, newItem]);
         handleModalClose();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const onDeleteItem = (id) => {
+    deleteItem(id)
+      .then(() => {
+        const updatedItems = clothingItems.filter((item) => item._id !== id);
+        setClothingItems(updatedItems);
       })
       .catch((err) => {
         console.log(err);
@@ -106,6 +117,7 @@ function App() {
             handleModalClose={handleModalClose}
             isOpen={activeModal === "add-garment"}
             onAddItem={onAddItem}
+            onDeleteItem={onDeleteItem}
           />
         )}
         {activeModal === "preview" && (
