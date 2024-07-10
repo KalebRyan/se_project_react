@@ -95,29 +95,6 @@
       "name": "Sweatshirt",
       "weather": "warm",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sweatshirt.png?etag=008a9674757bea2e0bdb31242e364be0"
-    },
-    {
-      "_id": 16,
-      "name": "T-Shirt",
-      "weather": "hot",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
-    },
-    {
-      "name": "Shirt",
-      "weather": "warm",
-      "_id": 17
-    },
-    {
-      "name": "shirt",
-      "imageUrl": "https://www.ecosia.org/images?addon=chrome&addonversion=6.0.3&q=uniqulo+shirt#id=01523618E175B4ADC478C3C7E0AA2E86C6E1E625",
-      "weather": "warm",
-      "_id": 18
-    },
-    {
-      "name": "shirt",
-      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/435806/item/goods_09_435806.jpg?width=2000",
-      "weather": "warm",
-      "_id": 19
     }
   ]
 }

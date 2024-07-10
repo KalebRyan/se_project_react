@@ -7,6 +7,7 @@ import Main from "../Main/Main";
 import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
 import Footer from "../Footer/Footer";
 import { coordinates, APIkey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
@@ -31,6 +32,10 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  };
+
+  const handleDeleteClick = () => {
+    setActiveModal("confirm-delete");
   };
 
   const handleModalClose = () => {
@@ -117,7 +122,6 @@ function App() {
             handleModalClose={handleModalClose}
             isOpen={activeModal === "add-garment"}
             onAddItem={onAddItem}
-            onDeleteItem={onDeleteItem}
           />
         )}
         {activeModal === "preview" && (
@@ -125,6 +129,15 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             handleModalClose={handleModalClose}
+            onDeleteItem={onDeleteItem}
+          />
+        )}
+        {activeModal === "confirm-delete" && (
+          <ConfirmDeleteModal
+            activeModal={activeModal}
+            card={selectedCard}
+            handleModalClose={handleModalClose}
+            onDeleteItem={onDeleteItem}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
