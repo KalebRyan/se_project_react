@@ -1,6 +1,6 @@
 import "./ConfirmDeleteModal.css";
 
-function ConfirmDeleteModal({ onDeleteItem, handleModalClose }) {
+function ConfirmDeleteModal({ handleModalClose, onDeleteItem }) {
   return (
     <div className="modal">
       <div className="modal-content">
