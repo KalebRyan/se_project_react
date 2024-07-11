@@ -58,6 +58,7 @@ function App() {
       .then(() => {
         const updatedItems = clothingItems.filter((item) => item._id !== id);
         setClothingItems(updatedItems);
+        handleModalClose();
       })
       .catch((err) => {
         console.log(err);
