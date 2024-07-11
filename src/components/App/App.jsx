@@ -130,12 +130,12 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             handleModalClose={handleModalClose}
-            onDeleteItem={onDeleteItem}
+            onDeleteItem={handleDeleteClick}
           />
         )}
         {activeModal === "confirm-delete" && (
           <ConfirmDeleteModal
-            activeModal={activeModal}
+            activeModal={activeModal === "confirm-delete"}
             card={selectedCard}
             handleModalClose={handleModalClose}
             onDeleteItem={onDeleteItem}
