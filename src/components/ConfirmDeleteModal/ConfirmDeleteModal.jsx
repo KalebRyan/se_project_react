@@ -1,6 +1,11 @@
 import "./ConfirmDeleteModal.css";
 
-function ConfirmDeleteModal({ handleModalClose, onDeleteItem, activeModal }) {
+function ConfirmDeleteModal({
+  handleModalClose,
+  onDeleteItem,
+  activeModal,
+  card,
+}) {
   return (
     <div className={`modal ${activeModal && "modal_opened"}`}>
       <div className="modal-delete__content">
@@ -15,7 +20,10 @@ function ConfirmDeleteModal({ handleModalClose, onDeleteItem, activeModal }) {
             <br />
             This action is irreversible.
           </h2>
-          <button className="modal__delete-confirm" onClick={onDeleteItem}>
+          <button
+            className="modal__delete-confirm"
+            onClick={onDeleteItem(card._id)}
+          >
             Yes, delete item
           </button>
           <button className="modal__delete-cancel" onClick={handleModalClose}>
