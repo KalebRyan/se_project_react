@@ -22,7 +22,7 @@ function ConfirmDeleteModal({
           </h2>
           <button
             className="modal__delete-confirm"
-            onClick={onDeleteItem(card._id)}
+            onClick={() => onDeleteItem(card._id)}
           >
             Yes, delete item
           </button>
