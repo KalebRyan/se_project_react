@@ -1,10 +1,6 @@
 import "./ItemModal.css";
 
 function ItemModal({ activeModal, handleModalClose, card, onDeleteItem }) {
-  // const handleDelete = () => {
-  //   onDeleteItem(card._id);
-  // };
-
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
