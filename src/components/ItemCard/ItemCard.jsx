@@ -1,9 +1,12 @@
 import "./ItemCard.css";
+// import { useEscape } from "../../hooks/useEscape";
 
 function ItemCard({ item, handleCardClick }) {
   const onCardClick = () => {
     handleCardClick(item);
   };
+
+  // useEscape(closeModal);
 
   return (
     <li className="card">

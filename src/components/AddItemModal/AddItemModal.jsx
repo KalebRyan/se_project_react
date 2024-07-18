@@ -2,6 +2,7 @@ import React from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
+import { useEscape } from "../../hooks/useEscape";
 
 function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
   // const [name, setName] = React.useState("");

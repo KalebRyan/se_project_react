@@ -39,21 +39,21 @@ function App() {
     setActiveModal("confirm-delete");
   };
 
-  useEffect(() => {
-    if (!activeModal) return;
+  // useEffect(() => {
+  //   if (!activeModal) return;
 
-    const handleEscClose = (e) => {
-      if (e.key === "Escape") {
-        handleModalClose();
-      }
-    };
+  //   const handleEscClose = (e) => {
+  //     if (e.key === "Escape") {
+  //       handleModalClose();
+  //     }
+  //   };
 
-    document.addEventListener("keydown", handleEscClose);
+  //   document.addEventListener("keydown", handleEscClose);
 
-    return () => {
-      document.removeEventListener("keydown", handleEscClose);
-    };
-  }, [activeModal]);
+  //   return () => {
+  //     document.removeEventListener("keydown", handleEscClose);
+  //   };
+  // }, [activeModal]);
 
   const handleModalClose = () => {
     setActiveModal("");
