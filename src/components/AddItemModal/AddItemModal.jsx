@@ -5,26 +5,15 @@ import { useForm } from "../../hooks/useForm";
 import { useEscape } from "../../hooks/useEscape";
 
 function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
-  // const [name, setName] = React.useState("");
-  // const [imageUrl, setImageUrl] = React.useState("");
-  // const [weather, setWeather] = React.useState("");
-  const { values, handleChange, setValues } = useForm({});
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleImageUrlChange = (e) => {
-    setImageUrl(e.target.value);
-  };
-
-  const handleWeatherChange = (e) => {
-    setWeather(e.target.value);
-  };
+  const { values, handleChange, setValues } = useForm({
+    name: "",
+    imageUrl: "",
+    weather: "",
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather });
+    onAddItem(values);
   }
 
   return (

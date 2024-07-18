@@ -125,6 +125,12 @@
       "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/414351/item/goods_09_414351.jpg?width=2000",
       "weather": "warm",
       "_id": 23
+    },
+    {
+      "name": "Shirt",
+      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/414351/item/goods_09_414351.jpg?width=2000",
+      "weather": "",
+      "_id": 24
     }
   ]
 }
