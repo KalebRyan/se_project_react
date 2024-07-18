@@ -119,6 +119,12 @@
       "imageUrl": "https://images.pexels.com/photos/355235/pexels-photo-355235.jpeg?auto=compress&cs=tinysrgb&h=350",
       "weather": "warm",
       "_id": 22
+    },
+    {
+      "name": "Shirt",
+      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/414351/item/goods_09_414351.jpg?width=2000",
+      "weather": "warm",
+      "_id": 23
     }
   ]
 }
