@@ -41,6 +41,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
           type="text"
           placeholder="Name"
           id="name"
+          name="name"
           value={values.name}
           onChange={handleChange}
         />
@@ -52,6 +53,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
           type="url"
           placeholder="Image URL"
           id="imageUrl"
+          name="imageUrl"
           value={values.imageUrl}
           onChange={handleChange}
         />
