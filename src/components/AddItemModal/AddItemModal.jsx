@@ -4,9 +4,9 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
 function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
-  const [name, setName] = React.useState("");
-  const [imageUrl, setImageUrl] = React.useState("");
-  const [weather, setWeather] = React.useState("");
+  // const [name, setName] = React.useState("");
+  // const [imageUrl, setImageUrl] = React.useState("");
+  // const [weather, setWeather] = React.useState("");
   const { values, handleChange, setValues } = useForm({});
 
   const handleNameChange = (e) => {
@@ -41,8 +41,8 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
           type="text"
           placeholder="Name"
           id="name"
-          value={name}
-          onChange={handleNameChange}
+          value={values.name}
+          onChange={handleChange}
         />
       </label>
       <label htmlFor="imageUrl" className="modal__label">
@@ -52,8 +52,8 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
           type="url"
           placeholder="Image URL"
           id="imageUrl"
-          value={imageUrl}
-          onChange={handleImageUrlChange}
+          value={values.imageUrl}
+          onChange={handleChange}
         />
       </label>
       <fieldset className="modal__radio-buttons">
@@ -65,7 +65,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
             name="type"
             value="hot"
             id="hot"
-            onChange={handleWeatherChange}
+            onChange={handleChange}
           />
           <span>Hot</span>
         </label>
@@ -76,7 +76,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
             name="type"
             value="warm"
             id="warm"
-            onChange={handleWeatherChange}
+            onChange={handleChange}
           />
           <span>Warm</span>
         </label>
@@ -87,7 +87,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
             name="type"
             value="cold"
             id="cold"
-            onChange={handleWeatherChange}
+            onChange={handleChange}
           />
           <span>Cold</span>
         </label>
