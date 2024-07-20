@@ -106,12 +106,6 @@
       "name": "Flower",
       "imageUrl": "https://images.pexels.com/photos/355235/pexels-photo-355235.jpeg?auto=compress&cs=tinysrgb&h=350",
       "weather": "cold",
-      "_id": 20
-    },
-    {
-      "name": "Flower",
-      "imageUrl": "https://images.pexels.com/photos/355235/pexels-photo-355235.jpeg?auto=compress&cs=tinysrgb&h=350",
-      "weather": "cold",
       "_id": 21
     },
     {
@@ -131,6 +125,18 @@
       "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/414351/item/goods_09_414351.jpg?width=2000",
       "weather": "",
       "_id": 24
+    },
+    {
+      "name": "Shirt",
+      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/414351/item/goods_09_414351.jpg?width=2000",
+      "weather": "",
+      "_id": 25
+    },
+    {
+      "name": "Shirt",
+      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/435806/item/goods_09_435806.jpg?width=2000",
+      "weather": "",
+      "_id": 26
     }
   ]
 }

@@ -4,7 +4,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 import { useEscape } from "../../hooks/useEscape";
 
-function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
+function AddItemModal({ isOpen, onAddItem, handleModalClose, isLoading }) {
   const { values, handleChange, setValues } = useForm({
     name: "",
     imageUrl: "",
@@ -19,7 +19,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, onDeleteItem }) {
   return (
     <ModalWithForm
       title="New Garment"
-      buttonText="Add garment"
+      buttonText={isLoading ? "Saving..." : "Add Garment"}
       handleModalClose={handleModalClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}

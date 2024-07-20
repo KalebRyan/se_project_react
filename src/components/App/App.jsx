@@ -13,6 +13,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { addItem, getItems, deleteItem } from "../../utils/api";
+import { useEscape } from "../../hooks/useEscape";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -39,27 +40,14 @@ function App() {
     setActiveModal("confirm-delete");
   };
 
-  // useEffect(() => {
-  //   if (!activeModal) return;
-
-  //   const handleEscClose = (e) => {
-  //     if (e.key === "Escape") {
-  //       handleModalClose();
-  //     }
-  //   };
-
-  //   document.addEventListener("keydown", handleEscClose);
-
-  //   return () => {
-  //     document.removeEventListener("keydown", handleEscClose);
-  //   };
-  // }, [activeModal]);
-
   const handleModalClose = () => {
     setActiveModal("");
   };
 
+  useEscape(activeModal, handleModalClose);
+
   const onAddItem = (values) => {
+    setIsLoading(true);
     addItem(values)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
@@ -67,6 +55,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -141,6 +132,7 @@ function App() {
             handleModalClose={handleModalClose}
             isOpen={activeModal === "add-garment"}
             onAddItem={onAddItem}
+            isLoading={isLoading}
           />
         )}
         {activeModal === "preview" && (
