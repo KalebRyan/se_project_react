@@ -99,12 +99,6 @@
     {
       "name": "Flower",
       "imageUrl": "https://images.pexels.com/photos/355235/pexels-photo-355235.jpeg?auto=compress&cs=tinysrgb&h=350",
-      "weather": "warm",
-      "_id": 19
-    },
-    {
-      "name": "Flower",
-      "imageUrl": "https://images.pexels.com/photos/355235/pexels-photo-355235.jpeg?auto=compress&cs=tinysrgb&h=350",
       "weather": "cold",
       "_id": 21
     },
