@@ -137,6 +137,18 @@
       "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/437346/item/goods_09_437346.jpg",
       "weather": "",
       "_id": 27
+    },
+    {
+      "name": "Shirt",
+      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/435806/item/goods_09_435806.jpg?width=2000",
+      "weather": "warm",
+      "_id": 28
+    },
+    {
+      "name": "Shorts",
+      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/413179/item/goods_09_413179.jpg?width=2000",
+      "weather": "warm",
+      "_id": 29
     }
   ]
 }

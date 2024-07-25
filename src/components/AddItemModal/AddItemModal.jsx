@@ -54,7 +54,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, isLoading }) {
           <input
             className="modal__radio-input"
             type="radio"
-            name="type"
+            name="weather"
             value="hot"
             id="hot"
             onChange={handleChange}
@@ -65,7 +65,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, isLoading }) {
           <input
             className="modal__radio-input"
             type="radio"
-            name="type"
+            name="weather"
             value="warm"
             id="warm"
             onChange={handleChange}
@@ -76,7 +76,7 @@ function AddItemModal({ isOpen, onAddItem, handleModalClose, isLoading }) {
           <input
             className="modal__radio-input"
             type="radio"
-            name="type"
+            name="weather"
             value="cold"
             id="cold"
             onChange={handleChange}
