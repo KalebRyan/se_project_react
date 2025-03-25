@@ -5,9 +5,7 @@ function verifyResponse(res) {
 }
 
 function getItems() {
-  return fetch(`${baseUrl}/items`).then((res) => {
-    return verifyResponse(res);
-  });
+  return fetch(`${baseUrl}/items`).then(verifyResponse);
 }
 
 function addItem({ name, imageUrl, weather }) {
@@ -17,17 +15,13 @@ function addItem({ name, imageUrl, weather }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, imageUrl, weather }),
-  }).then((res) => {
-    return verifyResponse(res);
-  });
+  }).then(verifyResponse);
 }
 
 function deleteItem(id) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
-  }).then((res) => {
-    return verifyResponse(res);
-  });
+  }).then(verifyResponse);
 }
 
-export { getItems, addItem, deleteItem, verifyResponse };
+export { getItems, addItem, deleteItem, verifyResponse, baseUrl };

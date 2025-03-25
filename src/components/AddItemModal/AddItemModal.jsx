@@ -5,7 +5,7 @@ import { useForm } from "../../hooks/useForm";
 import { useEscape } from "../../hooks/useEscape";
 
 function AddItemModal({ isOpen, onAddItem, handleModalClose, isLoading }) {
-  const { values, handleChange, setValues } = useForm({
+  const { values, handleChange } = useForm({
     name: "",
     imageUrl: "",
     weather: "",

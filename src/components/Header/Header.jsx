@@ -5,7 +5,7 @@ import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 import { Link } from "react-router-dom";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({ handleAddClick, weatherData, isLoggedIn }) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -20,19 +20,37 @@ function Header({ handleAddClick, weatherData }) {
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add clothes
-      </button>
-      <Link to="/profile" className="header__link">
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
-        </div>
-      </Link>
+
+      {isLoggedIn ? (
+        <>
+          <button
+            onClick={handleAddClick}
+            type="button"
+            className="header__add-clothes-btn"
+          >
+            + Add clothes
+          </button>
+          <Link to="/profile" className="header__link">
+            <div className="header__user-container">
+              <p className="header__username">Terrence Tegegne</p>
+              <img
+                src={avatar}
+                alt="Terrence Tegegne"
+                className="header__avatar"
+              />
+            </div>
+          </Link>{" "}
+        </>
+      ) : (
+        <>
+          <button type="button" className="header__login-btn">
+            Sign Up
+          </button>
+          <button type="button" className="header__login-btn">
+            Log in
+          </button>{" "}
+        </>
+      )}
     </header>
   );
 }

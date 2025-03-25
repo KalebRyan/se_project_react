@@ -8,7 +8,10 @@ import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import LoginModal from "../LoginModal/LoginModal";
 import Footer from "../Footer/Footer";
+import ProtectedRoute from "../ProtectedRoute/ProtextedRoute";
 import { coordinates, APIkey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
@@ -26,6 +29,15 @@ function App() {
   const [currentTempUnit, setCurrentTempUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleSignUpClick = () => {
+    setActiveModal("register");
+  };
+
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -102,7 +114,11 @@ function App() {
         value={{ currentTempUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            weatherData={weatherData}
+            isLoggedIn={isLoggedIn}
+          />
           <Routes>
             <Route
               path="/"
@@ -117,11 +133,13 @@ function App() {
             <Route
               path="/profile"
               element={
-                <Profile
-                  handleCardClick={handleCardClick}
-                  clothingItems={clothingItems}
-                  handleAddClick={handleAddClick}
-                />
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Profile
+                    handleCardClick={handleCardClick}
+                    clothingItems={clothingItems}
+                    handleAddClick={handleAddClick}
+                  />
+                </ProtectedRoute>
               }
             />
           </Routes>
@@ -149,6 +167,18 @@ function App() {
             card={selectedCard}
             handleModalClose={handleModalClose}
             onDeleteItem={onDeleteItem}
+          />
+        )}
+        {activeModal === "register" && (
+          <RegisterModal
+            isOpen={activeModal === "register"}
+            handleModalClose={handleModalClose}
+          />
+        )}
+        {activeModal === "login" && (
+          <LoginModal
+            isOpen={activeModal === "login"}
+            handleModalClose={handleModalClose}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
