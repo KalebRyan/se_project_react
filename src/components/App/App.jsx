@@ -67,7 +67,11 @@ function App() {
   const handleUpdateUser = ({ name, avatar }) => {
     updateUserInfo({ name, avatar })
       .then((userData) => {
-        setCurrentUser(userData);
+        setCurrentUser((prev) => ({
+          ...prev,
+          name: userData.name,
+          avatar: userData.avatar,
+        }));
         handleModalClose();
       })
       .catch((err) => {
