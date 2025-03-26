@@ -79,7 +79,6 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser({});
-    setClothingItems([]);
   };
 
   const handleLogin = ({ email, password }) => {
@@ -121,7 +120,7 @@ function App() {
     setIsLoading(true);
     addItem(values)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        setClothingItems([newItem.data, ...clothingItems]);
         handleModalClose();
       })
       .catch((err) => {
@@ -160,14 +159,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (isLoggedIn) {
-      getItems()
-        .then((items) => {
-          setClothingItems(items);
-        })
-        .catch((error) => console.log(error));
-    }
-  }, [isLoggedIn]);
+    getItems()
+      .then((items) => {
+        setClothingItems(items);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   useEffect(() => {
     const token = getToken();
