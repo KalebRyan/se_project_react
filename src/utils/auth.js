@@ -11,13 +11,47 @@ function signUp({ name, avatar, email, password }) {
 }
 
 function signIn({ email, password }) {
-  return fetch(`${baseUrl}/login`, {
+  return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
+  })
+    .then(verifyResponse)
+    .then((data) => {
+      if (data.token) {
+        setToken(data.token);
+      }
+      return data;
+    });
+}
+
+function setToken(token) {
+  localStorage.setItem("jwt", token);
+}
+
+function getToken() {
+  const token = localStorage.getItem("jwt");
+
+  if (!token) {
+    return null;
+  }
+  return token;
+}
+
+function checkToken() {
+  const token = getToken();
+
+  if (!token) {
+    return Promise.reject("No token");
+  }
+
+  return fetch(`${baseUrl}/users/me`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
   }).then(verifyResponse);
 }
 
-export { signUp, signIn };
+export { signUp, signIn, setToken, getToken, checkToken };

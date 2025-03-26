@@ -3,7 +3,7 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
-function RegisterModal({ isOpen, onRegister, handleModalClose }) {
+function RegisterModal({ isOpen, handleModalClose, handleRegistration }) {
   const { values, handleChange } = useForm({
     name: "",
     email: "",
@@ -13,7 +13,7 @@ function RegisterModal({ isOpen, onRegister, handleModalClose }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onRegister(values);
+    handleRegistration(values);
   }
 
   return (

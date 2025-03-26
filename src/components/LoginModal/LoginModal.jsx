@@ -3,7 +3,7 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
-function LoginModal({ isOpen, onLogin, handleModalClose }) {
+function LoginModal({ isOpen, handleLogin, handleModalClose }) {
   const { values, handleChange } = useForm({
     email: "",
     password: "",
@@ -11,7 +11,7 @@ function LoginModal({ isOpen, onLogin, handleModalClose }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onLogin(values);
+    handleLogin(values);
   }
 
   return (
