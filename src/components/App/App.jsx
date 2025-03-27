@@ -40,7 +40,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(null);
 
   const handleSignUpClick = () => {
     setActiveModal("register");
@@ -205,6 +205,7 @@ function App() {
         })
         .catch(() => {
           setIsLoggedIn(false);
+          setCurrentUser(null);
         });
     } else {
       setIsLoggedIn(false);
