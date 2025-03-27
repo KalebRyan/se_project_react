@@ -16,7 +16,14 @@ import ProtectedRoute from "../ProtectedRoute/ProtextedRoute";
 import { coordinates, APIkey } from "../../utils/constants";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { addItem, getItems, deleteItem, updateUserInfo } from "../../utils/api";
+import {
+  addItem,
+  getItems,
+  deleteItem,
+  updateUserInfo,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/api";
 import { useEscape } from "../../hooks/useEscape";
 import { checkToken, getToken, signUp, signIn } from "../../utils/auth";
 import EditProfileModal from "../Profile/EditProfileModal/EditProfileModal";
@@ -82,7 +89,7 @@ function App() {
   const handleSignOut = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    setCurrentUser({});
+    setCurrentUser(null);
   };
 
   const handleLogin = ({ email, password }) => {
@@ -147,6 +154,24 @@ function App() {
       });
   };
 
+  const handleCardLike = ({ id, isLiked }) => {
+    !isLiked
+      ? addCardLike(id)
+          .then((res) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? res.data : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : removeCardLike(id)
+          .then((res) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? res.data : item))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
   const handleToggleSwitchChange = () => {
     currentTempUnit === "F" ? setCurrentTempUnit("C") : setCurrentTempUnit("F");
   };
@@ -205,6 +230,7 @@ function App() {
                 path="/"
                 element={
                   <Main
+                    handleCardLike={handleCardLike}
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
@@ -216,6 +242,7 @@ function App() {
                 element={
                   <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
+                      handleCardLike={handleCardLike}
                       handleEditProfileClick={handleEditProfileClick}
                       handleSignOut={handleSignOut}
                       handleCardClick={handleCardClick}

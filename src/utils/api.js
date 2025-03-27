@@ -46,6 +46,40 @@ function deleteItem(id) {
   }).then(verifyResponse);
 }
 
+function addCardLike(itemID) {
+  const token = getToken();
+
+  if (!token) {
+    return Promise.reject({
+      error: "You must be logged in to like items",
+    });
+  }
+
+  return fetch(`${baseUrl}/items/${itemID}/likes`, {
+    method: "PUT",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(verifyResponse);
+}
+
+function removeCardLike(itemID) {
+  const token = getToken();
+
+  if (!token) {
+    return Promise.reject({
+      error: "You must be logged in to unlike items",
+    });
+  }
+
+  return fetch(`${baseUrl}/items/${itemID}/likes`, {
+    method: "DELETE",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then(verifyResponse);
+}
+
 function updateUserInfo({ name, avatar }) {
   const token = getToken();
 
@@ -71,5 +105,7 @@ export {
   deleteItem,
   verifyResponse,
   updateUserInfo,
+  addCardLike,
+  removeCardLike,
   baseUrl,
 };

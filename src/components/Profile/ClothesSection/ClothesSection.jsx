@@ -4,7 +4,12 @@ import { useContext } from "react";
 import ItemCard from "../../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
+function ClothesSection({
+  handleCardClick,
+  clothingItems,
+  handleAddClick,
+  handleCardLike,
+}) {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -25,6 +30,7 @@ function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
           .map((item) => {
             return (
               <ItemCard
+                handleCardLike={handleCardLike}
                 key={item._id}
                 item={item}
                 handleCardClick={handleCardClick}
